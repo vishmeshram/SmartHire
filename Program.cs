@@ -125,7 +125,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 // HTTPS
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 // CORS
 app.UseCors("AllowReact");
