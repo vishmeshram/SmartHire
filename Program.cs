@@ -6,6 +6,8 @@ using SmartHire.Services.Interfaces;
 using SmartHire.Data;
 using System.Text;
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // DbContext
@@ -99,4 +101,4 @@ app.UseCors("AllowReact");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.Run();
+app.Run($"http://0.0.0.0:{port}");
