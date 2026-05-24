@@ -16,8 +16,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//    options.UseNpgsql(connectionString));
 
 // =========================
 // SERVICES
@@ -108,8 +108,7 @@ builder.Services.AddCors(options =>
                 "http://localhost:3000",
                 "https://localhost:3000",
                 "http://127.0.0.1:3000",
-                "https://127.0.0.1:3000",
-                "https://your-frontend.vercel.app"
+                "https://127.0.0.1:3000"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
