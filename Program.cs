@@ -108,7 +108,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:3000",
                 "https://localhost:3000",
                 "http://127.0.0.1:3000",
-                "https://127.0.0.1:3000"
+                "https://127.0.0.1:3000",
+                "https://smart-hire-client-lyart.vercel.app/"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
