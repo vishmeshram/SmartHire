@@ -126,6 +126,9 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseStaticFiles();
+
+
 app.UseCors("AllowReact");
 
 app.UseAuthentication();
