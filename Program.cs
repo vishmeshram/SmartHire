@@ -104,18 +104,18 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReact", policy =>
     {
         policy
-            .WithOrigins(
-                "http://localhost:3000",
-                "https://localhost:3000",
-                "http://127.0.0.1:3000",
-                "https://127.0.0.1:3000",
-                "https://smart-hire-client-ghigkaow3-vishmeshrams-projects.vercel.app"
-
+            .SetIsOriginAllowed(origin =>
+                origin.StartsWith("http://localhost:3000") ||
+                origin.StartsWith("https://localhost:3000") ||
+                origin.StartsWith("http://127.0.0.1:3000") ||
+                origin.StartsWith("https://127.0.0.1:3000") ||
+                origin.EndsWith(".vercel.app")
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
 });
+
 
 var app = builder.Build();
 
