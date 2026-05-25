@@ -128,7 +128,7 @@ app.UseSwaggerUI();
 
 app.UseStaticFiles();
 
-
+app.UseRouting();
 app.UseCors("AllowReact");
 
 app.UseAuthentication();
