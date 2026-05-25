@@ -109,7 +109,7 @@ builder.Services.AddCors(options =>
                 "https://localhost:3000",
                 "http://127.0.0.1:3000",
                 "https://127.0.0.1:3000",
-                " https://rad-gumdrop-efefeb.netlify.app"
+                "https://smart-hire-client-ghigkaow3-vishmeshrams-projects.vercel.app"
 
             )
             .AllowAnyHeader()
