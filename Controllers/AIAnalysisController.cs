@@ -22,15 +22,27 @@ namespace SmartHire.Controllers
         [HttpPost]
         public async Task<IActionResult> Analyze(int applicationId, AnalyzeResumeDTO dto)
         {
-            var userId = ClaimsHelper.GetUserId(User);
+            try
+            {
+                var userId = ClaimsHelper.GetUserId(User);
 
-            var result = await _aiService.AnalyzeAsync(applicationId, dto, userId);
+                var result = await _aiService.AnalyzeAsync(applicationId, dto, userId);
 
-            if (result == null)
-                return NotFound(new { message = "Application not found." });
+                if (result == null)
+                    return NotFound(new { message = "Application not found." });
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (to console, Serilog, etc.)
+                Console.WriteLine($"Error analyzing resume: {ex}");
+
+                // Return a descriptive error instead of a blank 500
+                return StatusCode(500, new { message = "Analysis failed", detail = ex.Message });
+            }
         }
+
 
         // GET api/jobapplications/1/analysis
         [HttpGet]
